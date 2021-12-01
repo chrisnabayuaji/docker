@@ -17,3 +17,22 @@ rsds/mariadb/data/*
 rsds/html/*
 !rsds/html/.gitkeep
 !rsds/html/info.php
+
+# ================= DEV 0 =================
+# LOGS
+dev0/logs/nginx/*
+!dev0/logs/nginx/.gitkeep
+dev0/logs/mariadb/*
+!dev0/logs/mariadb/.gitkeep
+dev0/logs/php/*
+!dev0/logs/php/.gitkeep
+
+# MARIADB
+dev0/mariadb/mariadb.env
+dev0/mariadb/data/*
+!dev0/mariadb/data/.gitkeep
+
+#HTML
+dev0/html/*
+!dev0/html/.gitkeep
+!dev0/html/info.php

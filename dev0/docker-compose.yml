@@ -1,0 +1,46 @@
+version: '3'
+services:
+  web:
+    image: nginx:1.20.2
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/html
+      - ./nginx/nginx.conf:/etc/nginx/default.conf
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.2
+
+  php:
+    image: php:5.6.40-fpm
+    volumes:
+      - ./html:/html
+    links:
+      - db
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.3
+
+  db:
+    image: mariadb:10.4.20
+    env_file:
+      - ./mariadb/mariadb.env
+    restart: "no"
+    ports:
+      - 3300:3306
+    volumes:
+      - ./mariadb/data:/var/lib/mysql
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.4
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 192.168.0.0/32
+         gateway: 192.168.0.1
