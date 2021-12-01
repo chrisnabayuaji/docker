@@ -11,8 +11,8 @@ services:
     links:
       - php
     networks:
-      vpcbr:
-        ipv4_address: 192.168.0.2
+      ndev0:
+        ipv4_address: 10.0.0.2
 
   php:
     image: php:5.6.40-fpm
@@ -21,8 +21,8 @@ services:
     links:
       - db
     networks:
-      vpcbr:
-        ipv4_address: 192.168.0.3
+      ndev0:
+        ipv4_address: 10.0.0.3
 
   db:
     image: mariadb:10.4.20
@@ -34,13 +34,13 @@ services:
     volumes:
       - ./mariadb/data:/var/lib/mysql
     networks:
-      vpcbr:
-        ipv4_address: 192.168.0.4
+      ndev0:
+        ipv4_address: 10.0.0.4
 
 networks:
-  vpcbr:
+  ndev0:
     driver: bridge
     ipam:
      config:
-       - subnet: 192.168.0.0/32
-         gateway: 192.168.0.1
+       - subnet: 10.0.0.0/16
+         gateway: 10.0.0.1
