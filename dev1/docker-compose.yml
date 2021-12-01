@@ -3,7 +3,7 @@ services:
   web:
     image: nginx:1.20.2
     ports:
-      - "8087:80"
+      - "8081:80"
     volumes:
       - ./html:/html
       - ./nginx/nginx.conf:/etc/nginx/default.conf
@@ -12,7 +12,7 @@ services:
       - php
     networks:
       vpcbr:
-        ipv4_address: 10.5.0.2
+        ipv4_address: 10.1.0.2
 
   php:
     build: ./php/
@@ -22,7 +22,7 @@ services:
       - db
     networks:
       vpcbr:
-        ipv4_address: 10.5.0.3
+        ipv4_address: 10.1.0.3
 
   db:
     image: mariadb:10.4.20
@@ -30,17 +30,17 @@ services:
       - ./mariadb/mariadb.env
     restart: "no"
     ports:
-      - 3307:3306
+      - 3301:3306
     volumes:
       - ./mariadb/data:/var/lib/mysql
     networks:
       vpcbr:
-        ipv4_address: 10.5.0.4
+        ipv4_address: 10.1.0.4
 
 networks:
   vpcbr:
     driver: bridge
     ipam:
      config:
-       - subnet: 10.5.0.0/16
-         gateway: 10.5.0.1
+       - subnet: 10.1.0.0/16
+         gateway: 10.1.0.1
