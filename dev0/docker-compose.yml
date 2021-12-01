@@ -17,12 +17,13 @@ services:
     build: ./php/
     volumes:
       - ./html:/html
+      - ./php/php.ini:/usr/local/etc/php/php.ini
     links:
       - db
     networks:
       ndev:
         ipv4_address: 10.0.0.2
-  
+
   web:
     image: nginx:1.20.2
     ports:
@@ -36,11 +37,11 @@ services:
     networks:
       ndev:
         ipv4_address: 10.0.0.3
-  
+
 networks:
   ndev:
     driver: bridge
     ipam:
-     config:
-       - subnet: 10.0.0.0/16
-         gateway: 10.0.0.1
+      config:
+        - subnet: 10.0.0.0/16
+          gateway: 10.0.0.1
