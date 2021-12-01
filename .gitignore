@@ -1,22 +1,22 @@
 .DS_Store
 
 # LOGS
-rsds/logs/nginx/*
-!rsds/logs/nginx/.gitkeep
-rsds/logs/mariadb/*
-!rsds/logs/mariadb/.gitkeep
-rsds/logs/php/*
-!rsds/logs/php/.gitkeep
+dev1/logs/nginx/*
+!dev1/logs/nginx/.gitkeep
+dev1/logs/mariadb/*
+!dev1/logs/mariadb/.gitkeep
+dev1/logs/php/*
+!dev1/logs/php/.gitkeep
 
 # MARIADB
-rsds/mariadb/mariadb.env
-rsds/mariadb/data/*
-!rsds/mariadb/data/.gitkeep
+dev1/mariadb/mariadb.env
+dev1/mariadb/data/*
+!dev1/mariadb/data/.gitkeep
 
 #HTML
-rsds/html/*
-!rsds/html/.gitkeep
-!rsds/html/info.php
+dev1/html/*
+!dev1/html/.gitkeep
+!dev1/html/info.php
 
 # ================= DEV 0 =================
 # LOGS
