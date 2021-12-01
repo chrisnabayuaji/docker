@@ -13,7 +13,7 @@ services:
       ndev:
         ipv4_address: 10.0.0.4
 
-  php5:
+  php:
     build: ./php/
     volumes:
       - ./html:/html
