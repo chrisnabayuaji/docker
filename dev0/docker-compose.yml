@@ -13,8 +13,8 @@ services:
       ndev:
         ipv4_address: 10.0.0.4
 
-  php:
-    image: php:5.6.40-fpm
+  php5:
+    build: ./php/
     volumes:
       - ./html:/html
     links:
@@ -22,7 +22,7 @@ services:
     networks:
       ndev:
         ipv4_address: 10.0.0.2
-
+  
   web:
     image: nginx:1.20.2
     ports:
