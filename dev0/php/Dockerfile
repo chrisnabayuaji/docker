@@ -18,5 +18,19 @@ RUN apt-get update \
         libmagickwand-dev \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip
+
+RUN apt-get update && \
+    apt-get install -y \
+    libzip-dev \
+    && docker-php-ext-install zip
+
 RUN pecl install imagick-3.4.1 \
     && docker-php-ext-enable imagick
