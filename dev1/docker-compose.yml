@@ -25,14 +25,15 @@ services:
         ipv4_address: 10.1.0.3
 
   db:
-    image: mariadb:10.4.20
+    image: mariadb:10.6.8
     env_file:
-      - ./mariadb/mariadb.env
+      - ./mariadb/.env
     restart: "no"
     ports:
       - 3301:3306
     volumes:
       - ./mariadb/data:/var/lib/mysql
+      - ./mariadb/conf.d:/etc/mysql/conf.d
     networks:
       vpcbr:
         ipv4_address: 10.1.0.4
